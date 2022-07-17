@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -20,6 +21,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
+import { HomePage } from './pages/home/home.component';
+import { ProductsPage } from './pages/products/products.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomePage },
+  { path: 'products', component: ProductsPage },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +38,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     ProductComponent,
     ShoppingListComponent,
     HeaderComponent,
-    ListItemComponent
+    ListItemComponent,
+    HomePage,
+    ProductsPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +54,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatCheckboxModule,
     MatToolbarModule,
     MatBadgeModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

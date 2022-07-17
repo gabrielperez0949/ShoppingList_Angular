@@ -1,5 +1,5 @@
 
-<div *ngIf="!initialLoad" style="height: 100%">
+<!-- <div *ngIf="!initialLoad" style="height: 100%">
   <app-header (toggleShoppingList)="drawer.toggle()" [title]="title" [shoppingListCount]="shoppingList.length"></app-header>
 
   <mat-drawer-container autosize>
@@ -10,4 +10,13 @@
     <app-products [products]="products" (addShoppingCartItem)="addShoppingCartItem($event)"></app-products>
 
   </mat-drawer-container>
+</div> -->
+
+<!-- 
+  TODO: Move header and footer from products components back in here for Generic UX.
+
+  Prerequisite: State handling between components to subscribe to open and close drawer actions. 
+ -->
+ <div style="height: 100%">
+  <router-outlet></router-outlet>
 </div>
